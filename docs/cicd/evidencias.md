@@ -1,13 +1,26 @@
-# Evidências da entrega
+# Evidências reais da implementação
 
-## Registros necessários
+## PR e CI (11/11/2026)
 
-1. Link do pull request da branch `feat/ci-cd` para `main`.
-2. Execução do GitHub Actions com jobs `backend` e `frontend` aprovados, mais artifacts de testes e cobertura.
-3. Falha controlada de JUnit/JS numa branch temporária e ausência de deploy.
-4. Configuração (sem exibir segredos) do Render Web Service e variáveis no GitHub.
-5. Execução de CD em push main após CI verde e com a variável de habilitação ativa.
-6. URL pública HTTPS, JSON do `GET /actuator/health` e SHA do deploy em Render.
-7. Um único PDF com YAML, prompts, modificações, dificuldades, evidências e análise.
+- Repositório: https://github.com/LeticiaFavoretto/DolceLou
+- Pull request **#1**: https://github.com/LeticiaFavoretto/DolceLou/pull/1
+- Branch: `feat/ci-cd` -> `main`; criada e publicada, sem merge.
+- Execução real de CI **#1**: https://github.com/LeticiaFavoretto/DolceLou/actions/runs/43117992036
+- SHA validado nesta execução: `6c05df7df6ce64efdeb63677222a52fd546bd10f`.
+- **Backend**: `Java 21 / Maven / PostgreSQL / JaCoCo` — success. Compilação/testes e upload de relatórios aprovados.
+- **Frontend**: `JavaScript syntax and HTML assets` — success. Verificações de sintaxe JS, assets HTML e testes Python aprovados.
+- Artifact: `dolcelou-java-reports` (Surefire/JaCoCo), disponível no run #1.
+- **Deploy**: skipped, porque o evento foi `pull_request`; comportamento esperado. Render ainda **não foi configurado nem acionado**.
 
-**Não substitua evidências reais por prints fictícios.** A existência do YAML, isoladamente, não comprova o deploy.
+Observação: alterações na documentação após essa execução podem gerar novos runs. Registre também o último run antes de finalizar o relatório.
+
+## Evidências ainda pendentes
+
+1. Teste de falha controlada em branch temporária: job falha e deploy não inicia.
+2. Rotação da senha PostgreSQL que estava versionada na main/histórico.
+3. Configuração do Render Web Service e dos secrets/variables no GitHub.
+4. Merge da PR após aprovação e execução da CI em push main.
+5. CD efetivo no Render, URL pública, `/actuator/health` com `{"status":"UP"}`, e SHA idêntico ao commit aprovado.
+6. PDF acadêmico único com YAML, prompts, análises, links e capturas verdadeiras.
+
+Não confundir deploy skipped em PR com deployment concluído.

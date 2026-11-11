@@ -1,21 +1,25 @@
-# Testes e evidências
+# Plano e resultados de testes
 
-| ID | Validação | Resultado esperado |
-|---|---|---|
-| T01 | Abrir PR para main | CI backend e frontend executam; sem deploy |
-| T02 | Teste JUnit propositalmente inválido em branch temporária | Backend falha |
-| T03 | Erro sintático Java em branch temporária | Build falha |
-| T04 | JavaScript inválido em branch temporária | Frontend falha |
-| T05 | PostgreSQL descartável no job | `SELECT 1` retorna 1 no teste |
-| T06 | Falha de CI | Deploy não inicia |
-| T07 | Merge aprovado em main | CI verde seguida do CD (se habilitado) |
-| T08 | URL pública após deploy | HTTP 200, `{"status":"UP"}` |
-| T09 | SHA | Commit no Render corresponde ao commit da CI |
+| ID | Caso | Status | Evidência |
+|---|---|---|---|
+| T01 | PR executa backend e frontend | **Aprovado** | https://github.com/LeticiaFavoretto/DolceLou/actions/runs/43117992036 |
+| T02 | Falha controlada de JUnit em branch | Pendente | Abrir PR de teste e capturar log |
+| T03 | Build quebrado controladamente em branch | Pendente | Job falho, sem merge |
+| T04 | Sintaxe JavaScript inválida em branch | Pendente | Job frontend falho |
+| T05 | Banco efêmero e `SELECT 1` | **Aprovado** | Job Java/PostgreSQL no run #1 |
+| T06 | PR não deve publicar produção | **Aprovado** | Job deploy skipped no run #1 |
+| T07 | Push main dispara CD após CI | Pendente | Requer merge autorizado e Render configurado |
+| T08 | Saúde do serviço publicado | Pendente | URL pública e HTTP 200 `UP` |
+| T09 | SHA do deploy igual ao CI | Pendente | Logs do Render |
 
-## Estado inicial
+## Testes automatizados adicionados
 
-- Tests Python em `scripts/test_render_deploy.py` simulam casos de erro de configuração, falha no deploy, SHA divergente, health UP e health DOWN. Execução local: 5 testes aprovados.
-- YAML/XML e scripts tiveram validação sintática na preparação.
-- Testes Java com Maven, PostgreSQL e workflows precisam ser verificados na aba Actions após abertura do PR.
-- Sem credenciais Render não há deploy real; não considere T07–T09 satisfeitos.
-- Não injete falhas na main de produção: use branches e PRs temporários, registre capturas e descarte os erros.
+- ProdutoServiceTest: seis cenários unitários JUnit/Mockito.
+- DolcelouApplicationTests: teste de conexão SQL e health do Actuator em contexto Spring.
+- TestRenderDeploy: cinco cenários simulados sem credenciais reais.
+- Node `--check` para os arquivos JS e validação de referências de assets no HTML.
+- JaCoCo: relatório gerado como artifact `dolcelou-java-reports`.
+
+**CI real verde em 11/11/2026:** https://github.com/LeticiaFavoretto/DolceLou/actions/runs/43117992036
+
+**Não execute falhas deliberadas na main.** Use PR/branch temporária e restaure o código após coletar evidência.
