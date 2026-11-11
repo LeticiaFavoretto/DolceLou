@@ -23,8 +23,11 @@ public class SecurityConfig {
             .cors(cors -> {})
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/*.html", "/css/**", "/js/**", "/fotinhas/**", "/audios/**", "/v1/acesso/login", "/v1/acesso/create", "/v1/produto/findAll", "/v1/produto/find/**").permitAll()
-                .requestMatchers("/v1/produto/**", "/v1/acesso/**", "/v1/carrinho/all", "/v1/carrinho/indicadores").hasRole("FUNCIONARIO")
+                .requestMatchers("/", "/*.html", "/css/**", "/js/**", "/fotinhas/**", "/audios/**",
+                    "/actuator/health", "/actuator/health/**",
+                    "/v1/acesso/login", "/v1/acesso/create", "/v1/produto/findAll", "/v1/produto/find/**").permitAll()
+                .requestMatchers("/v1/produto/**", "/v1/acesso/**", "/v1/carrinho/all", "/v1/carrinho/indicadores")
+                    .hasRole("FUNCIONARIO")
                 .anyRequest().authenticated())
             .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
