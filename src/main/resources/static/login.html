@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastre-se | Dolce Lou</title>
+  <meta name="description" content="Acesse ou crie sua conta na Dolce Lou.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+      <nav class="nav public-nav" aria-label="Navegação principal">
+        <ul class="nav__lista" id="menu-principal">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="cardapio.html">Menu</a></li>
+          <li><a class="nav__link" href="login.html" aria-current="page">Entrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="login">
+  
+    <div class="login__figura" aria-hidden="true">
+      <img src="fotinhas/bolologin.png" alt="">
+    </div>
+
+   
+    <section class="login__painel" aria-labelledby="acesso-titulo">
+      <a class="login__logo logo logo--pequeno" href="index.html" aria-label="Dolce Lou — página inicial">
+        <img src="fotinhas/logo (2).png" alt="Logo da Dolce Lou" width="140" height="140">
+      </a>
+
+      <h1 class="login__titulo js-titulo-acesso" id="acesso-titulo">Cadastro</h1>
+      <p class="login__subtitulo">Insira as informações de acesso.</p>
+
+     
+      <form id="loginForm">
+        <div class="campo">
+          <label class="campo__rotulo" for="email">E-mail</label>
+          <input class="campo__entrada" type="email" id="email" name="email" autocomplete="email"
+            placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="campo">
+          <label class="campo__rotulo" for="senha">Senha</label>
+          <input class="campo__entrada" type="password" id="senha" name="senha" autocomplete="current-password"
+            placeholder="Sua senha" required minlength="6">
+        </div>
+
+        <div class="campo campo--confirmar">
+          <label class="campo__rotulo" for="confirmar-senha">Confirmar senha</label>
+          <input class="campo__entrada" type="password" id="confirmar-senha" name="confirmar_senha"
+            autocomplete="new-password" placeholder="Repita a senha" required minlength="6">
+        </div>
+
+        <button type="submit" class="botao botao--primario botao--bloco js-enviar-acesso"
+          style="margin-top:.5rem">Cadastrar</button>
+
+        <p class="login__alternar">
+          <button type="button" class="js-alternar-login">Já tem conta? Entrar</button>
+        </p>
+
+        <p class="login__alternar">
+          <button type="button" class="js-entrar-convidado">Entrar sem login</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+
+
+  <script type="module" src="js/autenticacao.js"></script>
+</body>
+
+</html>

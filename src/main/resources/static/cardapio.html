@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio |  Dolce Lou</title>
+  <meta name="description"
+    content="Conheça o cardápio da Dolce Lou: massas caseiras, entradas, salgados e sobremesas. Preços por kg e por unidade.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+      <div class="cabecalho__direita">
+        <nav class="nav public-nav" aria-label="Navegação principal">
+        <button class="nav__alternador" aria-expanded="false" aria-controls="menu-principal">
+          <span class="sr-apenas">Abrir menu</span>
+          <span aria-hidden="true" style="font-size:1.6rem;line-height:1">☰</span>
+        </button>
+        <ul class="nav__lista" id="menu-principal">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="cardapio.html" aria-current="page">Menu</a></li>
+
+          <li id="nav-item-conta"><a class="nav__link" href="login.html" id="nav-link-entrar">Entrar</a></li>
+          <li id="nav-item-sair" hidden><button type="button" class="nav__link nav__botao-sair" id="botao-sair">Sair</button></li>
+        </ul>
+      </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    
+    <section class="hero" aria-labelledby="cardapio-titulo">
+      <div class="container hero__interno">
+        <div class="hero__texto">
+          <p class="hero__sobretitulo">Especial da Chef</p>
+          <h1 id="cardapio-titulo">Nosso cardápio</h1>
+          <p>Massas caseiras, salgados artesanais e sobremesas que são a cara da Dolce Lou. Tudo fresquinho e sob
+            encomenda.</p>
+          <a class="botao botao--primario" href="fotinhas/Cardápio Dolce Lou.pdf" download>Baixe nosso cardápio (PDF)</a>
+        </div>
+        <div class="hero__figura cardapio-hero__figura">
+          <span class="cardapio-hero__blob" aria-hidden="true"></span>
+          <img src="fotinhas/bolologin.png" alt="Prato de salada fresca com tomate, folhas e limão."
+            loading="lazy" width="360" height="360">
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="secao container" aria-labelledby="produtos-titulo">
+      <h2 id="produtos-titulo" class="titulo-secao">Nossos produtos</h2>
+      <ul class="categorias">
+        <li class="categoria">
+          <img class="categoria__icone" src="fotinhas/Vector (3).png" alt="">
+          <h3 class="categoria__titulo">Salgados</h3>
+          <p class="texto-suave">
+              Coxinhas, risoles, tortas e folheados feitos na hora, do jeitinho caseiro.
+          </p>
+      </li>
+      
+      <li class="categoria">
+          <img class="categoria__icone" src="fotinhas/Vector (2).png" alt="">
+          <h3 class="categoria__titulo">Massas caseiras</h3>
+          <p class="texto-suave">
+              Lasanhas, canelones e rondeles com recheios generosos. Vendidos por kg.
+          </p>
+      </li>
+      
+      <li class="categoria">
+          <img class="categoria__icone" src="fotinhas/Vector (4).png" alt="">
+          <h3 class="categoria__titulo">Bolos de aniversário</h3>
+          <p class="texto-suave">
+              Bolos decorados sob medida para a sua festa, do clássico ao personalizado.
+          </p>
+      </li>
+      </ul>
+    </section>
+
+    <div class="banner-titulo">
+      <p class="banner-titulo__texto">Cardápio</p>
+    </div>
+
+  
+    <section class="menu-bloco" aria-labelledby="massas-titulo">
+      <div class="container">
+        <div class="menu-bloco__cabecalho">
+          <h2 id="massas-titulo">Cardápio de massas</h2>
+          <p class="texto-suave">Massas caseiras congeladas, prontas para o forno. Tamanhos pequeno (700g), médio
+            (1,2kg) e grande (1,7kg).</p>
+          <hr class="menu-bloco__divisor">
+        </div>
+        <ul class="menu-lista">
+          <li>
+            <button type="button" data-imagem="fotinhas/lasanha.jpg">
+              <span class="item-menu__nome">Lasanha ao sugo, mista, bolonhesa, 4 queijos</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 75,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button"
+              data-imagem="fotinhas/torteleta.jpg">
+              <span class="item-menu__nome">Torteleta 4 queijos</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 75,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button"
+              data-imagem="fotinhas/canelone.jpg">
+              <span class="item-menu__nome">Canelone presunto e queijo</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 66,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button"
+              data-imagem="fotinhas/torteleta-damasco.jpg">
+              <span class="item-menu__nome">Torteleta de damasco com cream cheese</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 80,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button"
+              data-imagem="fotinhas/rondele.jpg">
+              <span class="item-menu__nome">Rondele presunto e queijo</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 75,00 / kg</span>
+            </button>
+          </li>
+          <li>
+              <span class="item-menu__nome">Cochila 4 queijos</span>
+              <span class="item-menu__descricao">Tamanhos: pequeno 700g, médio 1,2kg e 1,7kg</span>
+              <span class="item-menu__preco">R$ 75,00 / kg</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="menu-bloco" aria-labelledby="entradas-titulo" style="background:var(--cor-creme)">
+      <div class="container">
+        <div class="menu-bloco__cabecalho">
+          <h2 id="entradas-titulo">Cardápio de entradas / salgados</h2>
+          <p class="texto-suave">Tortas, salpicões e salgados fritos. Itens por kg ou por unidade.</p>
+          <hr class="menu-bloco__divisor">
+        </div>
+        <ul class="menu-lista">
+          <li>
+            <span class="item-menu__nome">Torta de palmito / frango</span>
+            <span class="item-menu__descricao">Massa amanteigada, que desmancha na boca</span>
+            <span class="item-menu__preco">R$ 65,00 / un</span>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="302" data-nome="Maionese"
+              data-preco="50" data-unidade="kg" data-descricao="Maionese de batata, cenoura e ervilhas."
+              data-imagem="fotinhas/maionese.jpg">
+              <span class="item-menu__nome">Maionese</span>
+              <span class="item-menu__descricao">Maionese de batata, cenoura e ervilhas</span>
+              <span class="item-menu__preco">R$ 50,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="303" data-nome="Torta de camarão"
+              data-preco="95" data-unidade="un" data-permite-unidade="true"
+              data-descricao="Massa amanteigada recheada com creme de camarão."
+              data-imagem="fotinhas/torta-camarao.jpg">
+              <span class="item-menu__nome">Torta de camarão</span>
+              <span class="item-menu__descricao">Massa amanteigada, que desmancha na boca</span>
+              <span class="item-menu__preco">R$ 95,00 / un</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="304" data-nome="Caponata de berinjela"
+              data-preco="70" data-unidade="kg" data-descricao="Deliciosa salada agridoce de berinjela."
+              data-imagem="fotinhas/caponata-berinjela.jpg">
+              <span class="item-menu__nome">Caponata de berinjela</span>
+              <span class="item-menu__descricao">Deliciosa salada de berinjela</span>
+              <span class="item-menu__preco">R$ 70,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="305" data-nome="Salpicão de frango"
+              data-preco="60" data-unidade="kg" data-descricao="Salada de frango disponibilizada sob encomenda."
+              data-imagem="fotinhas/salpicao.jpg">
+              <span class="item-menu__nome">Salpicão de frango</span>
+              <span class="item-menu__descricao">Salada de frango disponibilizada sob encomenda</span>
+              <span class="item-menu__preco">R$ 60,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="306" data-nome="Salgados fritos"
+              data-preco="80" data-unidade="kg"
+              data-descricao="Coxinhas, risoles misto, bolinha de queijo, quibe, croquete de carne e enroladinho de salsicha."
+              data-imagem="fotinhas/salgados-fritos.jpg">
+              <span class="item-menu__nome">Salgados fritos</span>
+              <span class="item-menu__descricao">Coxinhas, risoles, quibe, croquete e enroladinho</span>
+              <span class="item-menu__preco">R$ 80,00 / kg</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="menu-bloco" aria-labelledby="sobremesa-titulo">
+      <div class="container">
+        <div class="menu-bloco__cabecalho">
+          <h2 id="sobremesa-titulo">Cardápio de sobremesa</h2>
+          <p class="texto-suave">Pavês, tortas geladas e doces da casa. Vendidos por kg.</p>
+          <hr class="menu-bloco__divisor">
+        </div>
+        <ul class="menu-lista">
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="401" data-nome="Pavê de morango"
+              data-preco="55" data-unidade="kg" data-descricao="Camadas de creme, biscoito e morangos frescos."
+              data-imagem="fotinhas/pave.jpg">
+              <span class="item-menu__nome">Pavê de morango</span>
+              <span class="item-menu__descricao">Creme, biscoito e morangos frescos</span>
+              <span class="item-menu__preco">R$ 55,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="402" data-nome="Torta red velvet"
+              data-preco="80" data-unidade="kg" data-descricao="Torta gelada red velvet com cream cheese."
+              data-imagem="fotinhas/red-velvet.webp">
+              <span class="item-menu__nome">Torta red velvet</span>
+              <span class="item-menu__descricao">Camadas de bolo vermelho com cream cheese</span>
+              <span class="item-menu__preco">R$ 80,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="403" data-nome="Mousse de maracujá"
+              data-preco="50" data-unidade="kg" data-descricao="Mousse cremoso de maracujá com calda."
+              data-imagem="fotinhas/mousse.jpg">
+              <span class="item-menu__nome">Mousse de maracujá</span>
+              <span class="item-menu__descricao">Cremoso, com calda de maracujá</span>
+              <span class="item-menu__preco">R$ 50,00 / kg</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="item-menu js-comprar" data-produto-id="404" data-nome="Brigadeirão"
+              data-preco="60" data-unidade="kg" data-descricao="Brigadeirão cremoso de chocolate."
+              data-imagem="fotinhas/brigadeirao.jpg">
+              <span class="item-menu__nome">Brigadeirão</span>
+              <span class="item-menu__descricao">Cremoso de chocolate</span>
+              <span class="item-menu__preco">R$ 60,00 / kg</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="centralizar" style="padding-bottom:4rem">
+      <a class="botao botao--contorno" href="assets/cardapio-dolce-lou.pdf" download>Veja o menu completo</a>
+    </p>
+  </main>
+
+
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <div>
+        <a class="logo logo--rodape" href="index.html" aria-label="Dolce Lou" style="color: var(--cor-terracota)">
+          <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="70" height="70">
+        </a>
+      </div>
+      <div>
+        <h2 class="rodape__titulo">Nossos contatos</h2>
+        <address style="font-style:normal">
+         </span><span>Rua Alvorada do Norte 133, Parque São Domingos, SP</span></p>
+          </span><a class="rodape__link" href="tel:+5511997355333">+55 11 99735-5333</a></p>
+          </span><span>@dolcelouoficial</span></p>
+          <span><span>Qua – Sáb: 09h00 – 18h00<br>Dom: 09h00 – 14h30</span></p>
+        </address>
+      </div>
+      <nav aria-label="Links do rodapé">
+        <h2 class="rodape__titulo">Links</h2>
+        <ul class="rodape__lista">
+          <li><a class="rodape__link" href="#">Nosso contato</a></li>
+          <li><a class="rodape__link" href="cardapio.html">Menu</a></li>
+          <li><a class="rodape__link" href="#">Delivery</a></li>
+          <li><a class="rodape__link" href="#">Dúvidas</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="rodape__titulo">Nosso Instagram</h2>
+        <div class="rodape__instagram">
+          <img src="fotinhas/unsplash_PxJ9zkM2wdA.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_idTwDKt2j2o.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash__79ZJS8pV70.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/bolochoccreme.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_jeiqzOgwwKU.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_WBMi3TLZdZc (1).png" alt="Produtos da dolce lou" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="rodape__faixa" aria-hidden="true"></div>
+  </footer>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+    <script src="js/produtos.js"></script>
+</body>
+
+</html>

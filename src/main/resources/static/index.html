@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dolce Lou | Página Inicial</title>
+  <meta name="description"
+    content="Dolce Lou: comida caseira e artesanal, salgados, massas e bolos sob encomenda em São Domingos, SP.">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+
+  <header class="header-onda">
+
+    <nav class="navbar-onda nav public-nav container" aria-label="Navegação principal">
+      <ul class="menu-onda nav__lista">
+        <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav__link" href="cardapio.html">Menu</a></li>
+
+        <li id="nav-item-conta"><a class="nav__link" href="login.html" id="nav-link-entrar">Entrar</a></li>
+        <li id="nav-item-sair" hidden><button type="button" class="nav__link botao-sair-onda" id="botao-sair">Sair</button></li>
+      </ul>
+    </nav>
+
+    <div class="hero-onda">
+
+      <div class="text-onda">
+        <h1 id="hero-titulo">Sabor que transforma momentos</h1>
+        <p>Transformamos refeições simples em lembranças inesquecíveis. Do nosso forno para a sua história.</p>
+        <a class="botao botao--primario" href="cardapio.html" download>Ver Cardápio</a>
+      </div>
+
+      <div class="image-onda">
+        <img src="fotinhas/logo (2).png" alt="Dolce Lou">
+      </div>
+
+    </div>
+
+    <svg class="wave" viewBox="0 0 1440 320">
+      <path fill="#ffffff"
+        d="M0,160L34.3,176C68.6,192,137,224,206,218.7C274.3,213,343,171,411,154.7C480,139,549,149,617,144C685.7,139,754,117,823,128C891.4,139,960,181,1029,208C1097.1,235,1166,245,1234,213.3C1302.9,181,1371,107,1406,69.3L1440,32L1440,320L0,320Z">
+      </path>
+    </svg>
+
+  </header>
+
+  <main id="conteudo">
+    
+    <section class="secao container destaques" aria-labelledby="destaques-titulo">
+      <h2 id="destaques-titulo" class="sr-apenas">Nossos diferenciais</h2>
+      <figure>
+        <img src="fotinhas/bolochoccreme.png"
+          alt="Fatia de bolo de chocolate com cobertura cremosa servida em um prato escuro." loading="lazy">
+        <figcaption class="texto-suave" style="font-size:.8rem;margin-top:.5rem">Bolo de chocolate com leite ninho.</figcaption>
+      </figure>
+
+      <ul class="destaques__lista">
+        <li class="destaque">
+          <span class="destaque__icone" aria-hidden="true">
+            <img src="fotinhas/Icon2.png" alt="Ícone de entrega" class="destaque__imagem">
+          </span>
+          <div>
+            <h3 class="destaque__titulo">Comida caseira e artesanal</h3>
+            <p class="texto-suave">Na Dolce Lou, cada prato é preparado com cuidado. Valorizamos receitas que respeitam o tempo de preparo, os ingredientes frescos e o toque artesanal que faz toda a diferença no sabor</p>
+          </div>
+        </li>
+      
+        <li class="destaque">
+          <span class="destaque__icone" aria-hidden="true">
+            <img src="fotinhas/Icon3.png" alt="Ícone de cardápio" class="destaque__imagem">
+          </span>
+          <div>
+            <h3 class="destaque__titulo">Almoço Completo sem dificuldade</h3>
+            <p class="texto-suave">A Dolce Lou facilita o seu dia com refeições completas, equilibradas e prontas para levar. Sem complicações, sem espera, sem abrir mão da qualidade.</p>
+          </div>
+        </li>
+      
+        <li class="destaque">
+          <span class="destaque__icone" aria-hidden="true">
+            <img src="fotinhas/Icon1.png" alt="Ícone de talheres" class="destaque__imagem">
+          </span>
+          <div>
+            <h3 class="destaque__titulo">Comida personalizada feita por você</h3>
+            <p class="texto-suave">A Dolce Lou facilita o seu dia com refeições completas, equilibradas e prontas para levar. Sem complicações, sem espera, sem abrir mão da qualidade.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+    <section class="secao container" aria-labelledby="mais-pedidos-titulo">
+      <h2 id="mais-pedidos-titulo" class="titulo-secao">Mais pedidos</h2>
+
+      <ul class="produtos-grade">
+
+        <li>
+            <button type="button" class="produto"
+            data-imagem="fotinhas/tortas_salgadas.png">
+            <img class="produto__imagem" src="fotinhas/tortas_salgadas.png"
+              alt="Tortas salgadas" loading="lazy">
+              <span class="produto__nome">Tortas salgadas</span>
+
+          </button>
+        </li>
+        <li>
+            <button type="button" class="produto"
+            data-descricao="Folheados crocantes assados na hora, recheios de queijo e presunto."
+            data-imagem="fotinhas/feijoada.png">
+            <img class="produto__imagem" src="fotinhas/feijoada.png"
+              alt="Feijoada" loading="lazy">
+            <span class="produto__corpo">
+              <span class="produto__nome">Feijoada</span>
+              
+            </span>
+          </button>
+        </li>
+        <li>
+            <button type="button" class="produto"
+            data-descricao="Empanada de frango saborosa."
+            data-imagem="fotinhas/empada_frango.png">
+            <img class="produto__imagem" src="fotinhas/empada_frango.png"
+              alt="Empanada de frango." loading="lazy">
+            <span class="produto__corpo">
+              <span class="produto__nome">Empanada de frango</span>
+             
+            </span>
+          </button>
+        </li>
+        <li>
+            <button type="button" class="produto"
+            data-descricao="Delicioso bacalhau martins de sá"
+            data-imagem="fotinhas/bacalhau.png">
+            <img class="produto__imagem" src="fotinhas/bacalhau.png"
+              alt="Bacalhau martins de sá." loading="lazy">
+            <span class="produto__corpo">
+              <span class="produto__nome">Bacalhau martins de sá</span>
+             
+            </span>
+          </button>
+        </li>
+        <li>
+            <button type="button" class="produto"
+            data-descricao="Quiche de massa amanteigada com recheio de brócolis e queijo."
+            data-imagem="fotinhas/brocolis.png">
+            <img class="produto__imagem" src="fotinhas/brocolis.png" alt="Quiche de brócolis recém-assada."
+              loading="lazy">
+            <span class="produto__corpo">
+              <span class="produto__nome">Quiche de brócolis</span>
+              
+            </span>
+          </button>
+        </li>
+        <li>
+            <button type="button" class="produto">
+            <img class="produto__imagem" src="fotinhas/pururuca.png" alt="Delicioso prato porco a pururuca"
+              loading="lazy">
+            <span class="produto__corpo">
+              <span class="produto__nome">Porco a pururca</span>
+              
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <p class="centralizar"><a class="botao botao--primario" href="cardapio.html">Veja o nosso cardápio</a></p>
+    </section>
+
+    
+    <section class="secao container" aria-labelledby="instagram-titulo">
+      <h2 id="instagram-titulo" class="titulo-secao">Nosso Instagram</h2>
+      <p class="centralizar texto-suave" style="max-width:640px;margin:0 auto 2rem">
+        Gostaria de acompanhar nossas novidades e saber de primeira mão quais produtos estão sendo criados? Então venha conhecer nosso blog! 
+      </p>
+
+      <ul class="instagram-grade">
+        <li class="post">
+          <img class="post__imagem" src="fotinhas/unsplash_WBMi3TLZdZc.png"
+            alt="bolo co decoração florida" loading="lazy">
+          <p class="post__legenda">"Mais um bolo impecável por aqui!
+Massa fofinha, recheio caprichado e muitoooo carinho em cada detalhe da decoração.
+
+Quem aí também já teve um bolo nosso? Mostra pra gente. 🩷"</p>
+        </li>
+        <li class="post">
+          <img class="post__imagem" src="fotinhas/unsplash_WBMi3TLZdZc (1).png"
+            alt="Bolo decorado com enfeites de margarida" loading="lazy">
+          <p class="post__legenda">"Nossa cliente pediu um bolo semi naked e a gente entregou ESSA PERFEIÇÃO 🤌🏻😮‍💨
+
+Por aqui estamos apaixonados por esse bolo. 🩷"</p>
+        </li>
+        <li class="post">
+          <img class="post__imagem" src="fotinhas/unsplash_WBMi3TLZdZc (2).png" alt="Bandeja de salgados variados dourados."
+            loading="lazy">
+          <p class="post__legenda">"Mais uma novidade deliciosa por aqui: Cookies!
+
+Cookie de laranja, Cookie Chocolatudo {três deliciosos chocolates} e Cookie Red Velvet 🍪
+
+E temos três opções incríveis para Páscoa: Latas com 06, 12 ou 18 unidades"</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <div>
+        <a class="logo logo--rodape" href="index.html" aria-label="Dolce Lou" style="color: var(--cor-terracota)">
+          <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="70" height="70">
+        </a>
+      </div>
+
+      <div>
+        <h2 class="rodape__titulo">Nossos contatos</h2>
+        <address style="font-style:normal">
+          <p class="rodape__contato">
+            
+            <span>Rua Alvorada do Norte 133, Parque São Domingos, SP</span>
+          </p>
+          <p class="rodape__contato">
+            
+            <a class="rodape__link" href="tel:+5511997355333">+55 11 99735-5333</a>
+          </p>
+          <p class="rodape__contato">
+           
+            <span>@dolcelouoficial</span>
+          </p>
+          <p class="rodape__contato">
+            
+            <span>Qua – Sáb: 09h00 – 18h00<br>Dom: 09h00 – 14h30</span>
+          </p>
+        </address>
+      </div>
+
+      <nav aria-label="Links do rodapé">
+        <h2 class="rodape__titulo">Links</h2>
+        <ul class="rodape__lista">
+          <li><a class="rodape__link" href="#">Nosso contato</a></li>
+          <li><a class="rodape__link" href="cardapio.html">Menu</a></li>
+          <li><a class="rodape__link" href="#">Delivery</a></li>
+          <li><a class="rodape__link" href="#">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="rodape__titulo">Nosso Instagram</h2>
+        <div class="rodape__instagram">
+          <img src="fotinhas/unsplash_PxJ9zkM2wdA.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_idTwDKt2j2o.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash__79ZJS8pV70.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/bolochoccreme.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_jeiqzOgwwKU.png" alt="Produtos da dolce lou" loading="lazy">
+          <img src="fotinhas/unsplash_WBMi3TLZdZc (1).png" alt="Produtos da dolce lou" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="rodape__faixa" aria-hidden="true"></div>
+  </footer>
+
+ 
+  <div class="modal" id="modal-compra" role="dialog" aria-modal="true" aria-labelledby="compra-nome" hidden>
+    <div class="modal__fundo" tabindex="-1"></div>
+    <div class="modal__caixa">
+      <button type="button" class="modal__fechar" aria-label="Fechar janela de compra">×</button>
+      <div class="compra__corpo">
+        <h2 class="compra__nome" id="compra-nome">Produto</h2>
+        <p class="compra__descricao"></p>
+        <p class="compra__preco-base">R$ 0,00 / kg</p>
+
+        <fieldset class="compra__opcoes" style="border:0;padding:0;margin:0">
+          <legend class="sr-apenas">Forma de venda</legend>
+          <button type="button" class="opcao-peso" data-unidade="kg" aria-pressed="true">Por kg</button>
+          <button type="button" class="opcao-peso" data-unidade="un" aria-pressed="false" hidden>Por unidade</button>
+        </fieldset>
+
+        <div class="compra__quantidade">
+          <span class="compra__quantidade-rotulo" id="rotulo-qtd">Quantidade (kg)</span>
+          <div class="contador" role="group" aria-labelledby="rotulo-qtd">
+            <button type="button" class="contador__botao contador__menos" aria-label="Diminuir quantidade">−</button>
+            <output class="contador__valor" aria-live="polite">0,5 kg</output>
+            <button type="button" class="contador__botao contador__mais" aria-label="Aumentar quantidade">+</button>
+          </div>
+        </div>
+
+        <div class="compra__total">
+          <span>Total</span>
+          <span class="compra__total-valor">R$ 0,00</span>
+        </div>
+
+        <button type="button" class="botao botao--primario botao--bloco compra__adicionar" style="margin-top:1rem">
+          Adicionar ao carrinho
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+spring:
+    application:
+        name: dolcelou
+
+    datasource:
+        url: jdbc:postgresql://dpg-d9gme06pbkes73bu5cdg-a.oregon-postgres.render.com:5432/dbdolcelou
+        username: lefavoretto
+        password: 1AWpk2Hlb14XTWWD9TZT8gN0wnyTtmoE
+
+    jpa:
+        show-sql: true
+        driver-class-name: org.postgresql.Driver
+
+server:
+    port: 8082

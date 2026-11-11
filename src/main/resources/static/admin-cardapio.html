@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Dolce Lou</title>
+  <meta name="description" content="Gerenciamento de produtos do cardápio da Dolce Lou.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="painel">
+
+    <!-- barrinha q fica do lado -->
+    <header class="painel-lateral">
+      <a class="painel-lateral__logo logo" href="dashboard.html" aria-label="Dolce Lou — painel">
+        <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="56" height="56">
+      </a>
+      <nav class="painel-nav" aria-label="Menu do painel">
+        <a class="painel-nav__link" href="admin-cardapio.html" aria-current="page">Menu</a>
+        <a class="painel-nav__link" href="admin-pedidos.html">Pedidos</a>
+        <a class="painel-nav__link" href="admin-cadastro.html">Cadastro</a>
+        <a class="painel-nav__link" href="dashboard.html">BI</a>
+      </nav>
+      <div class="painel-lateral__sair">
+        <a class="painel-nav__link" href="login.html">Sair</a>
+      </div>
+    </header>
+
+    <!--conteudo -->
+    <main class="painel-conteudo" id="conteudo">
+      <div class="painel-cabecalho">
+        <div>
+          <h1 class="painel-cabecalho__titulo">Menu</h1>
+          <p class="texto-suave">Veja seus dados, edite informações ou cadastre produtos.</p>
+        </div>
+        <div class="painel-cabecalho__acoes">
+          <div class="filtro-wrap">
+            <button type="button" class="botao botao--contorno js-abrir-filtro-produtos">Filtros</button>
+            <div class="filtro-painel" id="filtro-produtos" hidden>
+              <p class="filtro-painel__titulo">Mostrar categorias</p>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-bolos" checked>
+                Bolos
+              </label>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-salgados" checked>
+                Salgados e tortas
+              </label>
+              <label class="filtro-painel__opcao">
+                <input type="checkbox" value="secao-cat-massas" checked>
+                Massas
+              </label>
+              <div class="filtro-painel__acoes">
+                <button type="button" class="botao botao--contorno js-limpar-filtro" style="padding:.4rem .8rem;font-size:.85rem">Mostrar tudo</button>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="botao botao--primario js-criar-produto">Criar produto</button>
+        </div>
+      </div>
+
+      <!-- bólos -->
+      <section class="tabela-categoria" id="secao-cat-bolos" aria-labelledby="cat-bolos">
+        <h2 class="tabela-categoria__titulo" id="cat-bolos">Bolos</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de bolos, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de bolos cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody data-lista="bolos">
+              <tr class="tabela__estado"><td colspan="5">Carregando produtos…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- salgados -->
+      <section class="tabela-categoria" id="secao-cat-salgados" aria-labelledby="cat-salgados">
+        <h2 class="tabela-categoria__titulo" id="cat-salgados">Salgados e tortas</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de salgados e tortas, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de salgados e tortas cadastrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody data-lista="salgados">
+              <tr class="tabela__estado"><td colspan="5">Carregando produtos…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- massa -->
+      <section class="tabela-categoria" id="secao-cat-massas" aria-labelledby="cat-massas">
+        <h2 class="tabela-categoria__titulo" id="cat-massas">Massas</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de massas, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de massas cadastradas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Medida</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody data-lista="massas">
+              <tr class="tabela__estado"><td colspan="5">Carregando produtos…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- pop-up de cadastro de produto (envia pro backend em js/adm.js) -->
+  <div class="modal" id="modal-produto" role="dialog" aria-modal="true" aria-labelledby="produto-modal-titulo" hidden>
+    <div class="modal__fundo" tabindex="-1"></div>
+    <div class="modal__caixa">
+      <button type="button" class="modal__fechar js-fechar-produto" aria-label="Fechar cadastro de produto">×</button>
+      <div class="compra__corpo">
+        <h2 id="produto-modal-titulo" style="margin-bottom:1rem">Novo produto</h2>
+        <form class="formulario painel-formulario" id="formulario-produto" novalidate style="background:transparent;padding:0">
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-nome">Nome</label>
+            <input class="campo__entrada" type="text" id="produto-nome" name="nome" placeholder="Ex.: Bolo de cenoura" required>
+          </div>
+          <div class="formulario__linha">
+            <div class="campo">
+              <label class="campo__rotulo" for="produto-categoria">Categoria</label>
+              <select class="campo__entrada" id="produto-categoria" name="categoria" required>
+                <option value="bolo">Bolos</option>
+                <option value="salgado">Salgados e tortas</option>
+                <option value="massa">Massas</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label class="campo__rotulo" for="produto-medida">Medida</label>
+              <input class="campo__entrada" type="text" id="produto-medida" name="medida" placeholder="por kg / por unidade" required>
+            </div>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-preco">Preço (R$)</label>
+            <input class="campo__entrada" type="number" id="produto-preco" name="preco" min="0" step="0.01" placeholder="0,00" required>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-descricao">Descrição</label>
+            <textarea class="campo__entrada" id="produto-descricao" name="descricao" rows="3" style="font:inherit" placeholder="Como é o produto"></textarea>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="produto-quantidade">Quantidade</label>
+            <textarea class="campo__entrada" id="produto-quantidade" name="Quantidade" rows="3" style="font:inherit" placeholder="0"></textarea>
+          </div>
+          <p class="texto-suave" id="produto-erro" role="alert" style="min-height:1.4rem;font-size:.9rem"></p>
+          <button type="submit" class="botao botao--primario botao--bloco">Cadastrar produto</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+
+  <div id="notificacao" class="notificacao" role="status" aria-live="polite"></div>
+
+  <script src="js/adm.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>

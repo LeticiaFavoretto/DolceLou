@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Dolce Lou</title>
+  <meta name="description" content="Cadastro de contas de acesso da Dolce Lou.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="painel">
+
+    <!-- barrinha do lado-->
+    <header class="painel-lateral">
+      <a class="painel-lateral__logo logo" href="dashboard.html" aria-label="Dolce Lou — painel">
+        <img src="fotinhas/logo (2).png" alt="Dolce Lou" width="56" height="56">
+      </a>
+      <nav class="painel-nav" aria-label="Menu do painel">
+        <a class="painel-nav__link" href="admin-cardapio.html">Menu</a>
+        <a class="painel-nav__link" href="admin-pedidos.html">Pedidos</a>
+        <a class="painel-nav__link" href="admin-cadastro.html" aria-current="page">Cadastro</a>
+        <a class="painel-nav__link" href="dashboard.html">BI</a>
+      </nav>
+      <div class="painel-lateral__sair">
+        <a class="painel-nav__link" href="login.html">Sair</a>
+      </div>
+    </header>
+    
+
+    <!-- conteudo  -->
+    <main class="painel-conteudo" id="conteudo">
+      <div class="painel-cabecalho">
+        <div>
+          <h1 class="painel-cabecalho__titulo">Cadastro</h1>
+          <p class="texto-suave">Cadastre novas contas de acesso (funcionários ou clientes).</p>
+        </div>
+      </div>
+
+      <div class="painel-colunas">
+
+        <form class="painel-formulario formulario" id="formulario-cadastro-conta" novalidate>
+          <div class="campo">
+            <label class="campo__rotulo" for="novo-email">E-mail</label>
+            <input class="campo__entrada" type="email" id="novo-email" name="email" autocomplete="email"
+              placeholder="pessoa@exemplo.com" required>
+          </div>
+
+          <div class="formulario__linha">
+            <div class="campo">
+              <label class="campo__rotulo" for="nova-senha">Senha</label>
+              <input class="campo__entrada" type="password" id="nova-senha" name="senha" autocomplete="new-password"
+                placeholder="Senha de acesso" required minlength="6">
+            </div>
+
+            <div class="campo">
+              <label class="campo__rotulo" for="confirmar-nova-senha">Confirmar senha</label>
+              <input class="campo__entrada" type="password" id="confirmar-nova-senha" name="confirmar_senha"
+                autocomplete="new-password" placeholder="Repita a senha" required minlength="6">
+            </div>
+          </div>
+
+          <div class="formulario__linha formulario__linha--rodape">
+            <div class="campo">
+              <label class="campo__rotulo" for="novo-tipo-conta">Tipo de conta</label>
+              <select class="campo__entrada" id="novo-tipo-conta" name="acesso" required>
+                <option value="FUNCIONARIO" selected>Funcionário</option>
+                <option value="COMPRADOR">Cliente</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <span class="campo__rotulo" aria-hidden="true">&nbsp;</span>
+              <button type="submit" class="botao botao--primario botao--bloco">Cadastrar conta</button>
+            </div>
+          </div>
+        </form>
+
+        <aside class="dashboard-card" aria-labelledby="cadastro-dicas-titulo">
+          <h2 class="dashboard-card__titulo" id="cadastro-dicas-titulo">Tipos de conta</h2>
+          <p class="texto-suave">Toda conta usa e-mail e senha únicos (o tipo escolhido define o que a pessoa consegue
+            acessar).</p>
+          <div class="indicadores">
+            <div class="indicador">
+              <span>
+                <strong>Funcionário</strong><br>
+                <span class="texto-suave" style="font-size:.85rem">Acessa o painel administrativo: Menu, Pedidos,
+                  Cadastro e BI.</span>
+              </span>
+            </div>
+            <div class="indicador">
+              <span>
+                <strong>Cliente</strong><br>
+                <span class="texto-suave" style="font-size:.85rem">Acessa a loja para comprar e acompanhar os próprios
+                  pedidos.</span>
+              </span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!--
+        anotaçãozinha: os dados q eu coloquei sao dados de demonstração. O AcessoEntity no backnd nn tem campo nome,
+        por isso a listagem usa o e-mail como identificação da conta
+      -->
+      <section class="tabela-categoria" aria-labelledby="contas-titulo">
+        <h2 class="tabela-categoria__titulo" id="contas-titulo">Contas cadastradas</h2>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de contas cadastradas, rolável">
+          <table class="tabela">
+            <caption class="sr-apenas">Lista de contas de acesso cadastradas</caption>
+            <thead>
+              <tr>
+                <th scope="col">E-mail</th>
+                <th scope="col">Tipo de conta</th>
+                <th scope="col"><span class="sr-apenas">Ações</span></th>
+              </tr>
+            </thead>
+            <tbody data-lista="contas">
+              <tr class="tabela__estado"><td colspan="3">Carregando contas…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="avisos" class="sr-apenas" role="status" aria-live="polite"></div>
+  <div id="notificacao" class="notificacao" role="status" aria-live="polite"></div>
+
+  <script src="js/adm.js"></script>
+</body>
+
+</html>
