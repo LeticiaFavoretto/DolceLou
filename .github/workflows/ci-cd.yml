@@ -1,0 +1,100 @@
+name: DolceLou - CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Java 21 / Maven / PostgreSQL / JaCoCo
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: dolcelou_test
+          POSTGRES_USER: dolcelou_ci
+          POSTGRES_PASSWORD: local_ci_only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U dolcelou_ci -d dolcelou_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      TEST_DB_URL: jdbc:postgresql://localhost:5432/dolcelou_test
+      TEST_DB_USERNAME: dolcelou_ci
+      TEST_DB_PASSWORD: local_ci_only
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Compile, test and collect coverage
+        run: bash ./mvnw -B -ntp clean verify
+      - name: Upload test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: dolcelou-java-reports
+          path: |
+            target/surefire-reports/
+            target/site/jacoco/
+          if-no-files-found: ignore
+
+  frontend:
+    name: JavaScript syntax and HTML assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          find src/main/resources/static/js -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check
+      - name: Check local HTML assets
+        run: python3 scripts/check_static_assets.py
+      - name: Test deployment safety logic without external credentials
+        run: python3 -m unittest discover -s scripts -p "test_*.py" -v
+
+  deploy:
+    name: Deploy tested commit to Render
+    needs: [backend, frontend]
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.RENDER_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 25
+    concurrency:
+      group: dolcelou-production-render
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Trigger, monitor, verify SHA and health
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_SERVICE_ID: ${{ vars.RENDER_SERVICE_ID }}
+          RENDER_PUBLIC_URL: ${{ vars.RENDER_PUBLIC_URL }}
+          EXPECTED_SHA: ${{ github.sha }}
+        run: python3 scripts/render_deploy.py
