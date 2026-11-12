@@ -12,9 +12,7 @@ import com.dolcelou.repository.CarrinhoItemRepository;
 import com.dolcelou.repository.CarrinhoRepository;
 import com.dolcelou.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -26,13 +24,17 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CarrinhoService {
 
-    private CarrinhoRepository carrinhoRepository;
-    private CarrinhoItemRepository carrinhoItemRepository;
-    private ProdutoRepository produtoRepository;
-    private AcessoRepository acessoRepository;
+    private final CarrinhoRepository carrinhoRepository;
+    private final CarrinhoItemRepository carrinhoItemRepository;
+    private final ProdutoRepository produtoRepository;
+    private final AcessoRepository acessoRepository;
 
     @Transactional
     public void adicionarAoCarrinho(String idUsuario, String idProduto, Integer quantidade) {
+
+        if (quantidade == null || quantidade <= 0) {
+            throw new IllegalArgumentException("Quantidade deve ser maior que zero");
+        }
 
         ProdutoEntity produto = produtoRepository.findById(idProduto)
                 .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
@@ -50,6 +52,9 @@ public class CarrinhoService {
 
         if (itemExistente.isPresent()) {
             CarrinhoItemEntity item = itemExistente.get();
+            if ((long) item.getQuantidade() + quantidade > produto.getQuantidade()) {
+                throw new IllegalArgumentException("Quantidade insuficiente em estoque");
+            }
             item.setQuantidade(item.getQuantidade() + quantidade);
             carrinhoItemRepository.save(item);
         } else {
@@ -68,7 +73,7 @@ public class CarrinhoService {
     @Transactional
     public void atualizarQuantidade(String idUsuario, String idProduto, Integer novaQuantidade) {
 
-        if (novaQuantidade <= 0) {
+        if (novaQuantidade == null || novaQuantidade <= 0) {
             throw new IllegalArgumentException("Quantidade deve ser maior que zero");
         }
 
